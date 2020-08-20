@@ -115,6 +115,14 @@ end else if (TARGET == "ALTERA") begin
         .aclr(1'b0),
         .dataout(q)
     );
+end else if (TARGET == "ECP5") begin
+	ODDRX1F i_oddr(
+		.D0(d1),
+		.D1(d2),
+		.SCLK(clk),
+		.RST(1'b0),
+		.Q(q)
+	);
 end else begin
     reg [WIDTH-1:0] d_reg_1 = {WIDTH{1'b0}};
     reg [WIDTH-1:0] d_reg_2 = {WIDTH{1'b0}};
