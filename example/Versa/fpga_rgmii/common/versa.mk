@@ -53,7 +53,7 @@ TRELLIS?=/usr/share/trellis
 
 # Mark the intermediate files as PRECIOUS to prevent make from
 # deleting them (see make manual section 10.4).
-.PRECIOUS: %.ngc %.ngd %_map.ncd %.ncd %.twr %.bit %_timesim.v
+.PRECIOUS: %.json %.config %.bit
 
 # include the local Makefile for project for any project specific targets
 CONFIG ?= config.mk
@@ -118,5 +118,3 @@ fpgasim: $(FPGA_TOP)_sim.v
 prog: attosoc.svf
 	openocd -f ${TRELLIS}/misc/openocd/ecp5-versa5g.cfg -c "transport select jtag; init; svf $<; exit"
 
-.PHONY: attosoc_sim clean prog
-.PRECIOUS: attosoc.json attosoc_out.config attosoc.bit
