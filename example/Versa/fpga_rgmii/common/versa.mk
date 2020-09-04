@@ -98,7 +98,7 @@ fpgasim: $(FPGA_TOP)_sim.v
 	rm -rf defines.v
 	touch defines.v
 	for x in $(DEFS); do echo '`define' $$x >> defines.v; done
-	yosys -p "synth_ecp5 -json $@ -top $(FPGA_TOP)" $(SYN_FILES_REL) defines.v
+	yosys -p "synth_ecp5 -abc9 -json $@ -top $(FPGA_TOP)" $(SYN_FILES_REL) defines.v
 
 
 ########################### ISE TRANSLATE ############################
