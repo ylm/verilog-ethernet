@@ -418,7 +418,9 @@ eth_axis_tx_inst (
     .busy()
 );
 
-udp_complete
+udp_complete #(
+ .ARP_CACHE_ADDR_WIDTH(7)
+)
 udp_complete_inst (
     .clk(clk_125mhz),
     .rst(rst_125mhz),
